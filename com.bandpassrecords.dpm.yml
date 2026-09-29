@@ -46,8 +46,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/bandpassrecords/daw-project-manager.git
-        tag: v2.7.4
-        commit: 67206b804c0e9822125bcfc83483270cee0d2c68
+        tag: v2.9.0
+        commit: 040da0de8e1f54a4fc240c9588baecf8ab46bebd
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
