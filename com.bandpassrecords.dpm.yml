@@ -32,13 +32,17 @@ modules:
         RUSTUP_HOME: /var/lib/rustup
     build-commands:
       - cp lib/config/oauth_config.dart.template lib/config/oauth_config.dart
+      - sed -i -e '/^  ffmpeg_kit_flutter_new_audio:[ ]\^/d' -e '/^  ffmpeg_kit_flutter_new_audio:$/,/^    path:[
+        ]third_party\/ffmpeg_kit_flutter_new_audio$/d' pubspec.yaml
       - setup-flutter.sh
+      - cp flatpak/in_process_ffmpeg_stub.dart lib/services/in_process_ffmpeg.dart
       - APP_VERSION=$(grep -o '<release version="[^"]*"' flatpak/com.bandpassrecords.dpm.metainfo.xml
         | head -1 | sed -E 's/.*version="([^"]*)".*/\1/'); flutter build linux --release
         --no-pub --dart-define=APP_VERSION=${APP_VERSION:-0.0.0}
-      - BUNDLE=$(echo build/linux/*/release/bundle); mkdir -p /app/com.bandpassrecords.dpm;
-        cp -r "$BUNDLE"/* /app/com.bandpassrecords.dpm/; install -d /app/bin; ln -s
-        /app/com.bandpassrecords.dpm/daw_project_manager /app/bin/daw_project_manager
+      - BUNDLE=$(echo build/linux/*/release/bundle); install -Dm755 "$BUNDLE/daw_project_manager"
+        /app/com.bandpassrecords.dpm/daw_project_manager; cp -r "$BUNDLE/data" /app/com.bandpassrecords.dpm/data;
+        cp -r "$BUNDLE/lib" /app/com.bandpassrecords.dpm/lib; install -d /app/bin;
+        ln -s /app/com.bandpassrecords.dpm/daw_project_manager /app/bin/daw_project_manager
       - install -Dm644 flatpak/com.bandpassrecords.dpm.desktop /app/share/applications/com.bandpassrecords.dpm.desktop
       - install -Dm644 flatpak/com.bandpassrecords.dpm.metainfo.xml /app/share/metainfo/com.bandpassrecords.dpm.metainfo.xml
       - install -Dm644 flatpak/icons/com.bandpassrecords.dpm_128.png /app/share/icons/hicolor/128x128/apps/com.bandpassrecords.dpm.png
@@ -46,8 +50,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/bandpassrecords/daw-project-manager.git
-        tag: v2.7.4
-        commit: 67206b804c0e9822125bcfc83483270cee0d2c68
+        tag: v2.9.1
+        commit: ca7c1911914b06fe87a0d17235a79fe437efb95b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

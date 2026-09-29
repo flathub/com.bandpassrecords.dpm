@@ -772,6 +772,20 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/ffmpeg_kit_flutter_platform_interface-0.2.1.tar.gz",
+        "sha256": "addf046ae44e190ad0101b2fde2ad909a3cd08a2a109f6106d2f7048b7abedee",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/ffmpeg_kit_flutter_platform_interface-0.2.1"
+    },
+    {
+        "type": "inline",
+        "contents": "addf046ae44e190ad0101b2fde2ad909a3cd08a2a109f6106d2f7048b7abedee",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "ffmpeg_kit_flutter_platform_interface-0.2.1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://pub.dev/api/archives/file-7.0.1.tar.gz",
         "sha256": "a3b4f84adafef897088c160faf7dfffb7696046cb13ae90b508c2cbc95d3b8d4",
         "strip-components": 0,
@@ -3106,20 +3120,6 @@
         "contents": "7eb6d6c4164ec08e1bf978d6e733f3cebe792e2a23fb07cbca25c2872bfdbdcd",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
         "dest-filename": "window_manager-0.5.1.sha256"
-    },
-    {
-        "type": "archive",
-        "archive-type": "tar-gzip",
-        "url": "https://pub.dev/api/archives/windows_taskbar-1.1.2.tar.gz",
-        "sha256": "204edfdb280a7053febdf50fc9b49b3c007255bd8a83c082d10c174ec6548f33",
-        "strip-components": 0,
-        "dest": ".pub-cache/hosted/pub.dev/windows_taskbar-1.1.2"
-    },
-    {
-        "type": "inline",
-        "contents": "204edfdb280a7053febdf50fc9b49b3c007255bd8a83c082d10c174ec6548f33",
-        "dest": ".pub-cache/hosted-hashes/pub.dev",
-        "dest-filename": "windows_taskbar-1.1.2.sha256"
     },
     {
         "type": "archive",
